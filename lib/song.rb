@@ -30,6 +30,7 @@ class Song
   end 
   
   def self.find_by_name(name)
+<<<<<<< HEAD
     @@all.find{|song| song.name == name}
   end
   
@@ -59,4 +60,20 @@ class Song
   def self.destroy_all
     @@all.clear
   end
+=======
+    self.all.find{|song| song.name == name}
+  end
+  
+  def self.find_or_create_by_name(name)
+    if @@all.include?(name) == false 
+      song = self.new
+      song.name = name
+      @@all << song
+      song
+    else
+      name == song.name
+      name
+    end 
+  end 
+>>>>>>> 51f18b3139b33f93179de57f405ff71359c10286
 end
